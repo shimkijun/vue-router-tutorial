@@ -32,28 +32,28 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list>
-            <v-list-group
-                v-for="(item, i) in menu"
-                :key="i"
-                v-model="item.active"
-                :prepend-icon="item.icon"
-                no-action
+          <v-list-group
+            v-for="(item, i) in menu"
+            :key="i"
+            v-model="item.active"
+            :prepend-icon="item.icon"
+            no-action
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                  <v-list-item-title v-text="item.title"></v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list-item
+              v-for="subItem in item.subItems"
+              :key="subItem.title"
+              :to="subItem.to"
             >
-                <template v-slot:activator>
-                <v-list-item-content>
-                    <v-list-item-title v-text="item.title"></v-list-item-title>
-                </v-list-item-content>
-                </template>
-                <v-list-item
-                v-for="subItem in item.subItems"
-                :key="subItem.title"
-                :to="subItem.to"
-                >
-                <v-list-item-content>
-                    <v-list-item-title v-text="subItem.title"></v-list-item-title>
-                </v-list-item-content>
-                </v-list-item>
-            </v-list-group>
+              <v-list-item-content>
+                  <v-list-item-title v-text="subItem.title"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
         </v-list>
       </v-navigation-drawer>
     </div>
@@ -73,6 +73,7 @@ export default {
         {
           title: 'Home',
           icon: 'mdi-home',
+          active: true,
           subItems: [
             {
               title: 'Dashboard',
@@ -85,13 +86,12 @@ export default {
           ]
         },
         {
-          title: 'Account',
+          title: 'Users',
           icon: 'mdi-account',
-          active: true,
           subItems: [
             {
               title: 'Dashboard',
-              to: '/'
+              to: '/users'
             }
           ]
         }
