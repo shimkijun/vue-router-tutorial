@@ -2,6 +2,7 @@
   <v-app>
     <div>
       <v-app-bar
+        app
         color="deep-purple accent-4"
         dense
         dark
@@ -50,13 +51,6 @@
               router
               :to="{
                 name:subItem.to,
-                params:{
-                  id : subItem.id
-                },
-                query:{
-                  group : subItem.group,
-                  category: subItem.category
-                }
               }"
             >
               <v-list-item-content>
