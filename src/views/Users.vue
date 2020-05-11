@@ -1,7 +1,9 @@
 <template>
     <div>
-        <h1>Usersasdf{{ userId }}</h1>
-
+        <h1>User</h1>
+        <p>유저 번호 {{ userId }}</p>
+        <p>그룹 {{ $route.query.group }}</p>
+        <p>카테고리 {{ $route.query.category }}</p>
     </div>
 </template>
 <script>

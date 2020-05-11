@@ -11,17 +11,17 @@ const Users = () => import(/* webpackChunkName: "about" */ '../views/Users.vue')
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     component: About
   },
   {
-    path: '/users/:id',
-    name: 'Users',
+    path: '/users',
+    name: 'users',
     component: Users
   }
 ]

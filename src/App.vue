@@ -47,7 +47,17 @@
             <v-list-item
               v-for="subItem in item.subItems"
               :key="subItem.title"
-              :to="subItem.to"
+              router
+              :to="{
+                name:subItem.to,
+                params:{
+                  id : subItem.id
+                },
+                query:{
+                  group : subItem.group,
+                  category: subItem.category
+                }
+              }"
             >
               <v-list-item-content>
                   <v-list-item-title v-text="subItem.title"></v-list-item-title>
@@ -77,11 +87,11 @@ export default {
           subItems: [
             {
               title: 'Dashboard',
-              to: '/'
+              to: 'home'
             },
             {
               title: 'About',
-              to: '/about'
+              to: 'about'
             }
           ]
         },
@@ -91,7 +101,10 @@ export default {
           subItems: [
             {
               title: 'Dashboard',
-              to: '/users'
+              to: 'users',
+              id: 1,
+              group: 'member',
+              category: 'trial'
             }
           ]
         }
