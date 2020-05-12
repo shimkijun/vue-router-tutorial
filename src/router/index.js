@@ -26,6 +26,10 @@ const routes = [
   {
     path: '/users',
     name: 'users',
+    beforeEnter: (to, from, next) => {
+      console.log('before Enter')
+      next()
+    },
     component: Users,
     children: [
       {
